@@ -3,6 +3,7 @@ var gBoard;
 var gLevel;
 var gGame;
 var gFlagMineCount;
+var gMisFlagCount;
 var gCurrAvatar;
 var gDiff = 1;
 var gTimer;
@@ -139,6 +140,7 @@ function cellClicked(elCell, i, j) {
 function checkGameOver(board) {
   var liveCnt = gLevel.LivesCnt;
   gFlagMineCount = 0;
+  gMisFlagCount = 0;
   for (var i = 0; i < board.length; i++) {
     for (var j = 0; j < board[0].length; j++) {
       currCell = board[i][j];
@@ -155,10 +157,11 @@ function checkGameOver(board) {
           liveCnt--;
         }
       }
+      if (currCell.isMarked && !currCell.isMine) gMisFlagCount++;
       if (currCell.isMarked && currCell.isMine) gFlagMineCount++;
     }
   }
-  if (gFlagMineCount === gLevel.MINES) {
+  if (gFlagMineCount === gLevel.MINES && !gMisFlagCount) {
     setTimeout(function () {
       alert('You Won');
       setAvatar('cool');
