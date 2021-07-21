@@ -149,6 +149,8 @@ function checkGameOver(board) {
           setAvatar('lose');
           gGame.isOn = false;
           liveCnt--;
+          getGameElements(gBoard, AVATARS.BOMB);
+          clearInterval(gInterval);
         } else {
           liveCnt--;
         }
@@ -161,6 +163,7 @@ function checkGameOver(board) {
       alert('You Won');
       setAvatar('cool');
       gGame.isOn = false;
+      clearInterval(gInterval);
     }, 300);
   }
   return liveCnt;
@@ -208,4 +211,16 @@ function setAvatar(avatarKind) {
 function changeDiff(diff) {
   gDiff = diff;
   initGame();
+}
+function getGameElements(board, element) {
+  for (var i = 0; i < board.length; i++) {
+    for (var j = 0; j < board[0].length; j++) {
+      var currCell = board[i][j];
+      var currElCell = document.querySelector(`.cell-${i}-${j}`);
+      if (currCell.isMine) {
+        currElCell.innerHTML = element;
+        currElCell.style.backgroundColor = 'red';
+      }
+    }
+  }
 }
