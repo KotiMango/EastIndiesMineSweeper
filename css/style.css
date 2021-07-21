@@ -1,9 +1,14 @@
+* {
+  overflow: hidden;
+}
 body {
   background: linear-gradient(to right, #fc00ff, #00dbde);
-  height: 100%;
-  width: 100vh;
+  background-position: center top;
+  background-size: 100% auto;
+  min-width: 100vh;
   margin: auto;
   user-select: none;
+  background-size: cover;
 }
 .game-board {
   background-color: #626262;
