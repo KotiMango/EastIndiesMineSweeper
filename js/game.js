@@ -5,6 +5,8 @@ var gGame;
 var gFlagMineCount;
 var gCurrAvatar;
 var gDiff = 1;
+var gTimer;
+var gInterval;
 const AVATARS = {
   BOMB: '💣',
   FLAG: '🚩',
@@ -60,6 +62,16 @@ function initGame() {
   renderBoard(gBoard);
   renderLives(gLevel.LivesCnt);
   setAvatar('normal');
+  gTimer = 0;
+  clearInterval(gInterval);
+}
+function iniateInterval() {
+  gInterval = setInterval(timer, 10);
+}
+function timer() {
+  var elTimer = document.querySelector('.timer');
+  elTimer.innerText = gTimer.toFixed(3);
+  gTimer = gTimer + 0.01;
 }
 
 function setMinesNegsCount(board, yIdx, xIdx) {
@@ -95,6 +107,7 @@ function addMines(board, mineCnt, yIdx, xIdx) {
     cell.isMine = true;
     setMinesNegsCount(board, rndY, rndX);
   }
+  iniateInterval();
 }
 
 function cellClicked(elCell, i, j) {
