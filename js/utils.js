@@ -15,7 +15,7 @@ function renderBoard(board) {
 function renderLives(liveCnt) {
   var strHTML = '';
   for (var i = 0; i < liveCnt; i++) {
-    strHTML += `<span class="live live-${i}"><img src="/img/heart-icon_34407.ico" alt="" /></span>`;
+    strHTML += `<span class="live live-${i}"><img src="./img/heart-icon_34407.ico" alt="" /></span>`;
   }
   document.querySelector('.health-bar').innerHTML = strHTML;
 }
