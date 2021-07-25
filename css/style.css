@@ -128,5 +128,5 @@ a.button:hover {
 
 .glow,
 .bulb:hover {
-  background-image: url('./img/bulb-glow.ico');
+  background-image: url('../img/bulb-glow.ico');
 }
