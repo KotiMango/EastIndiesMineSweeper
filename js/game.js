@@ -11,7 +11,7 @@ const AVATARS = {
   BOMB: '💣',
   FLAG: '🚩',
   EMPTY: '',
-  HEART: '<img src="/img/heart-icon_34407.ico" alt="" />',
+  HEART: '<img src="./img/heart-icon_34407.ico" alt="" />',
   NORMAL: '😀',
   LOSE: '🤯',
   COOL: '😎',
